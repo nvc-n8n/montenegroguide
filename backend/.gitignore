@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.env
+media/images/
+media/thumbnails/
+*.db
+*.db-shm
+*.db-wal
+.venv/
+venv/
+.fly/

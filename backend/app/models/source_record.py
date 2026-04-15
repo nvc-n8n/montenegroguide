@@ -1,5 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, func
-from sqlalchemy.dialects.postgresql import JSONB
+from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey, func, JSON
 from sqlalchemy.orm import relationship
 
 from app.db.base import Base
@@ -13,7 +12,7 @@ class SourceRecord(Base):
     external_id = Column(String(300), nullable=True)
     source_url = Column(Text, nullable=False)
     municipality_slug = Column(String(100), nullable=True, index=True)
-    raw_payload = Column(JSONB, nullable=True)
+    raw_payload = Column(JSON, nullable=True)
     normalized_slug = Column(String(300), nullable=True, index=True)
     parse_status = Column(String(30), nullable=False, default="pending")
     created_at = Column(DateTime(timezone=True), server_default=func.now())

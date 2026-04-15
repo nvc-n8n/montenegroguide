@@ -4,8 +4,8 @@ from pathlib import Path
 
 class Settings(BaseSettings):
     # Database
-    database_url: str = "postgresql+asyncpg://postgres:postgres@localhost:5432/montenegro_guide"
-    database_url_sync: str = "postgresql://postgres:postgres@localhost:5432/montenegro_guide"
+    database_url: str = "sqlite+aiosqlite:///./montenegro_guide.db"
+    database_url_sync: str = "sqlite:///./montenegro_guide.db"
 
     # API
     api_host: str = "0.0.0.0"
@@ -37,6 +37,10 @@ class Settings(BaseSettings):
     @property
     def media_path(self) -> Path:
         return Path(self.media_root)
+
+    @property
+    def is_sqlite(self) -> bool:
+        return "sqlite" in self.database_url
 
 
 settings = Settings()

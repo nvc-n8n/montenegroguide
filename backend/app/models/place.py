@@ -1,8 +1,7 @@
 from sqlalchemy import (
     Column, Integer, String, Text, Boolean, Float, DateTime,
-    ForeignKey, Index, func
+    ForeignKey, Index, func, JSON
 )
-from sqlalchemy.dialects.postgresql import JSONB, TSVECTOR
 from sqlalchemy.orm import relationship
 
 from app.db.base import Base
@@ -14,7 +13,7 @@ class Place(Base):
     id = Column(Integer, primary_key=True)
     slug = Column(String(300), unique=True, nullable=False, index=True)
     name = Column(String(300), nullable=False)
-    alternate_names = Column(JSONB, default=list)
+    alternate_names = Column(JSON, default=list)
     municipality_id = Column(Integer, ForeignKey("municipalities.id"), nullable=False, index=True)
     category_id = Column(Integer, ForeignKey("categories.id"), nullable=False, index=True)
     subtype = Column(String(100), nullable=True)
@@ -25,9 +24,9 @@ class Place(Base):
     short_description = Column(Text, nullable=True)
     long_description = Column(Text, nullable=True)
 
-    tags = Column(JSONB, default=list)
-    amenities = Column(JSONB, default=list)
-    best_for = Column(JSONB, default=list)
+    tags = Column(JSON, default=list)
+    amenities = Column(JSON, default=list)
+    best_for = Column(JSON, default=list)
 
     featured = Column(Boolean, default=False, index=True)
     popularity_score = Column(Integer, default=0)
@@ -46,8 +45,6 @@ class Place(Base):
     license_type = Column(String(100), nullable=True)
     verified_at = Column(DateTime(timezone=True), nullable=True)
 
-    search_document = Column(TSVECTOR, nullable=True)
-
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), server_default=func.now(), onupdate=func.now())
 
@@ -64,15 +61,4 @@ class Place(Base):
     __table_args__ = (
         Index("ix_places_municipality_category", "municipality_id", "category_id"),
         Index("ix_places_featured_popularity", "featured", "popularity_score"),
-        Index(
-            "ix_places_search_document",
-            "search_document",
-            postgresql_using="gin",
-        ),
-        Index(
-            "ix_places_name_trgm",
-            "name",
-            postgresql_using="gin",
-            postgresql_ops={"name": "gin_trgm_ops"},
-        ),
     )

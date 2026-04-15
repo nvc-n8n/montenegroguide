@@ -1,0 +1,56 @@
+[
+  {
+    "id": "mun-herceg-novi",
+    "slug": "herceg-novi",
+    "name": "Herceg Novi",
+    "region": "primorje",
+    "short_description": "Grad šetališta, tvrđava i mirnijih uvala na samom ulazu u Bokokotorski zaliv.",
+    "hero_image_url": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=80",
+    "place_count": 4
+  },
+  {
+    "id": "mun-kotor",
+    "slug": "kotor",
+    "name": "Kotor",
+    "region": "primorje",
+    "short_description": "Kamen, uske ulice i dramatične padine iznad zaliva čine Kotor najikončnijom razglednicom obale.",
+    "hero_image_url": "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1600&q=80",
+    "place_count": 4
+  },
+  {
+    "id": "mun-tivat",
+    "slug": "tivat",
+    "name": "Tivat",
+    "region": "primorje",
+    "short_description": "Ležerniji ritam, uređene rive i lagan prelaz iz gradskog dana u večernje more.",
+    "hero_image_url": "https://images.unsplash.com/photo-1493558103817-58b2924bce98?auto=format&fit=crop&w=1600&q=80",
+    "place_count": 4
+  },
+  {
+    "id": "mun-budva",
+    "slug": "budva",
+    "name": "Budva",
+    "region": "primorje",
+    "short_description": "Najživlja obala za plaže, stari grad, večernje izlaske i dinamičan ljetnji raspored.",
+    "hero_image_url": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80",
+    "place_count": 4
+  },
+  {
+    "id": "mun-bar",
+    "slug": "bar",
+    "name": "Bar",
+    "region": "primorje",
+    "short_description": "Široka obala, slojevita istorija i više prostora za opušteniji tempo putovanja.",
+    "hero_image_url": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
+    "place_count": 4
+  },
+  {
+    "id": "mun-ulcinj",
+    "slug": "ulcinj",
+    "name": "Ulcinj",
+    "region": "primorje",
+    "short_description": "Južna obala sa dugim pješčanim plažama, boemskim ritmom i snažnim lokalnim karakterom.",
+    "hero_image_url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1600&q=80",
+    "place_count": 4
+  }
+]

@@ -7,6 +7,7 @@ python-multipart==0.0.18
 sqlalchemy[asyncio]==2.0.36
 asyncpg==0.30.0
 psycopg2-binary==2.9.10
+aiosqlite==0.20.0
 alembic==1.14.0
 
 # Validation
@@ -29,3 +30,4 @@ python-dotenv==1.0.1
 python-slugify==8.0.4
 click==8.1.7
 rich==13.9.4
+aiofiles==24.1.0

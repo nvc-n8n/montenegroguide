@@ -31,6 +31,7 @@ yarn-error.*
 *.pem
 
 # local env files
+.env
 .env*.local
 
 # typescript
@@ -39,3 +40,19 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# claude / local tool state
+.claude/
+.playwright-mcp/
+
+# expo web dev logs
+.expo-web.log
+.expo-web.err.log
+
+# misc logs
+*.log
+
+# sqlite leftovers (root level)
+*.db
+*.db-shm
+*.db-wal

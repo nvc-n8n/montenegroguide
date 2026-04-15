@@ -1,0 +1,79 @@
+[
+  {
+    "id": "cat-plaze",
+    "slug": "plaze",
+    "name": "Plaže",
+    "icon": "beach",
+    "place_count": 4
+  },
+  {
+    "id": "cat-znamenitosti",
+    "slug": "znamenitosti",
+    "name": "Znamenitosti",
+    "icon": "compass-rose",
+    "place_count": 3
+  },
+  {
+    "id": "cat-tvrdjave",
+    "slug": "tvrdjave-stari-gradovi",
+    "name": "Tvrđave / stari gradovi",
+    "icon": "castle",
+    "place_count": 3
+  },
+  {
+    "id": "cat-manastiri",
+    "slug": "manastiri-crkve",
+    "name": "Manastiri / crkve",
+    "icon": "church",
+    "place_count": 2
+  },
+  {
+    "id": "cat-muzeji",
+    "slug": "muzeji-kultura",
+    "name": "Muzeji / kultura",
+    "icon": "palette-outline",
+    "place_count": 2
+  },
+  {
+    "id": "cat-priroda",
+    "slug": "priroda-vidikovci",
+    "name": "Priroda / vidikovci",
+    "icon": "pine-tree",
+    "place_count": 2
+  },
+  {
+    "id": "cat-restorani",
+    "slug": "restorani-beach-barovi",
+    "name": "Restorani / beach barovi",
+    "icon": "silverware-fork-knife",
+    "place_count": 2
+  },
+  {
+    "id": "cat-nightlife",
+    "slug": "nocni-zivot",
+    "name": "Noćni život",
+    "icon": "music-circle-outline",
+    "place_count": 1
+  },
+  {
+    "id": "cat-aktivni",
+    "slug": "aktivni-odmor",
+    "name": "Aktivni odmor",
+    "icon": "kayaking",
+    "place_count": 1
+  },
+  {
+    "id": "cat-family",
+    "slug": "porodicna-mjesta",
+    "name": "Porodična mjesta",
+    "icon": "account-group-outline",
+    "place_count": 2
+  },
+  {
+    "id": "cat-hidden",
+    "slug": "hidden-gems",
+    "name": "Hidden gems",
+    "icon": "diamond-stone",
+    "place_count": 2
+  }
+]
