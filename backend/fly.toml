@@ -11,6 +11,11 @@ primary_region = "fra"  # Frankfurt — closest EU region
 [build]
   dockerfile = "Dockerfile"
 
+[deploy]
+  # Runs after image is built, before traffic is routed. Keeps the schema current
+  # across deploys without manual intervention. Seeding is separate (one-off).
+  release_command = "python cli.py migrate"
+
 [env]
   DATABASE_URL = "sqlite+aiosqlite:////data/montenegro_guide.db"
   DATABASE_URL_SYNC = "sqlite:////data/montenegro_guide.db"
