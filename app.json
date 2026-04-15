@@ -35,6 +35,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "7aa0b568-d200-4b87-b829-e183480464a6"
+      }
+    },
+    "owner": "1302nvc"
   }
 }
