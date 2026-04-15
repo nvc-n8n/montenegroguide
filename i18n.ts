@@ -20,8 +20,8 @@ export const SUPPORTED_LANGUAGES = [
 
 export type LanguageCode = (typeof SUPPORTED_LANGUAGES)[number]["code"];
 
-const getDeviceLanguage = (): LanguageCode => {
-  const locale = Localization.getLocales()[0]?.languageCode ?? "me";
+export const getDeviceLanguage = (): LanguageCode => {
+  const locale = Localization.getLocales()[0]?.languageCode ?? "en";
   const mapped: Record<string, LanguageCode> = {
     sr: "me",
     hr: "me",
@@ -33,7 +33,7 @@ const getDeviceLanguage = (): LanguageCode => {
     it: "it",
     ru: "ru",
   };
-  return mapped[locale] ?? "me";
+  return mapped[locale] ?? "en";
 };
 
 i18n.use(initReactI18next).init({
@@ -46,7 +46,7 @@ i18n.use(initReactI18next).init({
     ru: { translation: ru },
   },
   lng: getDeviceLanguage(),
-  fallbackLng: "me",
+  fallbackLng: "en",
   interpolation: {
     escapeValue: false,
   },
