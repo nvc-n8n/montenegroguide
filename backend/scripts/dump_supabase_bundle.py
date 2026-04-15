@@ -390,6 +390,15 @@ def main():
     OUTPUT_SEED.write_text("\n".join(seed_sql), encoding="utf-8")
     print(f"wrote {OUTPUT_SEED} ({OUTPUT_SEED.stat().st_size / 1024:.1f} KB)")
 
+    print()
+    print("Next: load these onto the clipboard with PowerShell (UTF-8 safe):")
+    print(f"  powershell.exe -Command \"Get-Content -Path '{OUTPUT_SCHEMA}' -Encoding UTF8 -Raw | Set-Clipboard\"")
+    print(f"  powershell.exe -Command \"Get-Content -Path '{OUTPUT_SEED}' -Encoding UTF8 -Raw | Set-Clipboard\"")
+    print()
+    print("DO NOT use `cat ... | clip.exe` — clip.exe treats stdin as the")
+    print("Windows OEM codepage (CP775/CP852/etc.) and mangles UTF-8 multi-byte")
+    print("sequences, producing mojibake like `No─ćni ┼Šivot` on paste.")
+
 
 if __name__ == "__main__":
     main()

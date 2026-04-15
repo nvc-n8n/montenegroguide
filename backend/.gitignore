@@ -14,3 +14,4 @@ media/thumbnails/
 .venv/
 venv/
 .fly/
+mojibake_patterns.txt
