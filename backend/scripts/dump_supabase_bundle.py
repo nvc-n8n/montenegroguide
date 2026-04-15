@@ -29,6 +29,8 @@ from pathlib import Path
 BACKEND = Path(__file__).resolve().parent.parent
 DB_PATH = BACKEND / "montenegro_guide.db"
 OUTPUT = BACKEND / "scripts" / "supabase_bundle.sql"
+OUTPUT_SCHEMA = BACKEND / "scripts" / "supabase_01_schema_and_api.sql"
+OUTPUT_SEED = BACKEND / "scripts" / "supabase_02_seed.sql"
 
 CONTENT_TABLES = [
     # Order matters for FKs
@@ -344,6 +346,49 @@ def main():
     OUTPUT.write_text("\n".join(chunks), encoding="utf-8")
     size_kb = OUTPUT.stat().st_size / 1024
     print(f"wrote {OUTPUT} ({size_kb:.1f} KB)")
+
+    # --- split variant: schema+api separate from seed for easier pasting
+    schema_sql = [
+        "-- Montenegro Coast City Guide — Supabase schema + API layer",
+        "-- Paste FIRST into Supabase SQL Editor",
+        "",
+        "-- 1. SCHEMA",
+        generate_schema(),
+        "",
+        "-- 2. ROW-LEVEL SECURITY",
+        rls_block(),
+        "",
+        "-- 3. VIEWS + RPC",
+        views_and_rpc(),
+        "",
+        "COMMIT;",
+    ]
+    OUTPUT_SCHEMA.write_text("\n".join(schema_sql), encoding="utf-8")
+    print(f"wrote {OUTPUT_SCHEMA} ({OUTPUT_SCHEMA.stat().st_size / 1024:.1f} KB)")
+
+    seed_sql = [
+        "-- Montenegro Coast City Guide — Supabase seed data",
+        "-- Paste SECOND (after supabase_01_schema_and_api.sql) into Supabase SQL Editor",
+        "",
+        "BEGIN;",
+        "",
+    ]
+    conn2 = sqlite3.connect(DB_PATH)
+    conn2.row_factory = sqlite3.Row
+    cur2 = conn2.cursor()
+    for table, columns in CONTENT_TABLES:
+        seed_sql.append(dump_table(cur2, table, columns))
+    conn2.close()
+    seed_sql.append("")
+    seed_sql.append("-- Sequence resets")
+    seed_sql.append(sequence_resets())
+    seed_sql.append("")
+    seed_sql.append("-- Force full-text trigger on imported rows")
+    seed_sql.append("UPDATE places SET name = name;")
+    seed_sql.append("")
+    seed_sql.append("COMMIT;")
+    OUTPUT_SEED.write_text("\n".join(seed_sql), encoding="utf-8")
+    print(f"wrote {OUTPUT_SEED} ({OUTPUT_SEED.stat().st_size / 1024:.1f} KB)")
 
 
 if __name__ == "__main__":
