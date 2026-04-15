@@ -19,7 +19,8 @@
       },
       "env": {
         "EXPO_PUBLIC_USE_MOCK_API": "false",
-        "EXPO_PUBLIC_API_BASE_URL": "https://montenegro-guide-api.fly.dev/api/v1"
+        "EXPO_PUBLIC_SUPABASE_URL": "https://frjfkeikrzsffbnfwomo.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_gqdJEdgcpVQzAUJM9cLmtw_gb41611x"
       }
     },
     "preview-sim": {
@@ -35,7 +36,8 @@
       "autoIncrement": true,
       "env": {
         "EXPO_PUBLIC_USE_MOCK_API": "false",
-        "EXPO_PUBLIC_API_BASE_URL": "https://montenegro-guide-api.fly.dev/api/v1"
+        "EXPO_PUBLIC_SUPABASE_URL": "https://frjfkeikrzsffbnfwomo.supabase.co",
+        "EXPO_PUBLIC_SUPABASE_ANON_KEY": "sb_publishable_gqdJEdgcpVQzAUJM9cLmtw_gb41611x"
       }
     }
   },
